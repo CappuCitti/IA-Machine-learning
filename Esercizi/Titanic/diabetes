@@ -1,0 +1,25 @@
+digraph Tree {
+node [shape=box, style="filled, rounded", color="black", fontname="helvetica"] ;
+edge [fontname="helvetica"] ;
+0 [label=<Pclass &le; 0.5<br/>gini = 0.473<br/>samples = 596<br/>value = [367, 229]<br/>class = 0>, fillcolor="#f5d0b5"] ;
+1 [label=<PassengerId &le; 2.5<br/>gini = 0.376<br/>samples = 215<br/>value = [54, 161]<br/>class = 1>, fillcolor="#7bbeee"] ;
+0 -> 1 [labeldistance=2.5, labelangle=45, headlabel="True"] ;
+3 [label=<gini = 0.128<br/>samples = 116<br/>value = [8, 108]<br/>class = 1>, fillcolor="#48a4e7"] ;
+1 -> 3 ;
+4 [label=<Fare &le; 24.808<br/>gini = 0.498<br/>samples = 99<br/>value = [46, 53]<br/>class = 1>, fillcolor="#e5f2fc"] ;
+1 -> 4 ;
+7 [label=<gini = 0.485<br/>samples = 87<br/>value = [36, 51]<br/>class = 1>, fillcolor="#c5e2f7"] ;
+4 -> 7 ;
+8 [label=<gini = 0.278<br/>samples = 12<br/>value = [10, 2]<br/>class = 0>, fillcolor="#ea9a61"] ;
+4 -> 8 ;
+2 [label=<Fare &le; 25.962<br/>gini = 0.293<br/>samples = 381<br/>value = [313, 68]<br/>class = 0>, fillcolor="#eb9c64"] ;
+0 -> 2 [labeldistance=2.5, labelangle=-45, headlabel="False"] ;
+5 [label=<Parch &le; 0.5<br/>gini = 0.214<br/>samples = 263<br/>value = [231, 32]<br/>class = 0>, fillcolor="#e99254"] ;
+2 -> 5 ;
+9 [label=<gini = 0.177<br/>samples = 244<br/>value = [220, 24]<br/>class = 0>, fillcolor="#e88f4f"] ;
+5 -> 9 ;
+10 [label=<gini = 0.488<br/>samples = 19<br/>value = [11, 8]<br/>class = 0>, fillcolor="#f8ddc9"] ;
+5 -> 10 ;
+6 [label=<gini = 0.424<br/>samples = 118<br/>value = [82, 36]<br/>class = 0>, fillcolor="#f0b890"] ;
+2 -> 6 ;
+}
