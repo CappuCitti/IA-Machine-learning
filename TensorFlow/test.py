@@ -1,15 +1,15 @@
-import cv2
-from PIL import Image
 import numpy as np
 from keras.models import model_from_json
 
-f = open("model.json", "r")
+NUMBER = 3
+PATH = f"./modelli/{str(NUMBER)}/"
+
+f = open(PATH + "model.json", "r")
 jsonfile = f.read()
 f.close()
 model = model_from_json(jsonfile)
-model.load_weights("model.h5")
+model.load_weights(PATH + "model.h5")
 model.summary()
-
 
 
 def convert_to_array(img):
@@ -27,6 +27,8 @@ def get_animal_name(label):
         return "mucca"
     if label==3:
         return "gallina"
+    if label==4:
+        return "persona"
 def predict_animal(file):
     print("Predicting .................................")
     ar=convert_to_array(file)

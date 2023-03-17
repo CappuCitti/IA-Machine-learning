@@ -38,9 +38,31 @@ for chicken in chickens:
     data.append(np.array(resized_image))
     labels.append(3)
 
+people=os.listdir("raw-img/persone/0")
+for person in people:
+    imag=cv2.imread("raw-img/persone/0/"+person)
+    img_from_ar = Image.fromarray(imag, 'RGB')
+    resized_image = img_from_ar.resize((50, 50))
+    data.append(np.array(resized_image))
+    labels.append(4)
+people=os.listdir("raw-img/persone/1")
+for person in people:
+    imag=cv2.imread("raw-img/persone/1/"+person)
+    img_from_ar = Image.fromarray(imag, 'RGB')
+    resized_image = img_from_ar.resize((50, 50))
+    data.append(np.array(resized_image))
+    labels.append(4)
+people=os.listdir("raw-img/persone/2")
+for person in people:
+    imag=cv2.imread("raw-img/persone/2/"+person)
+    img_from_ar = Image.fromarray(imag, 'RGB')
+    resized_image = img_from_ar.resize((50, 50))
+    data.append(np.array(resized_image))
+    labels.append(4)
+
 
 animals=np.array(data)
 labels=np.array(labels)
 
-np.save("animals",animals)
-np.save("labels",labels)
+np.save("owo",animals)
+np.save("owo_labels",labels)

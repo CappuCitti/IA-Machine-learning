@@ -1,7 +1,7 @@
 import numpy as np
 
-animals=np.load("animals.npy")
-labels=np.load("labels.npy")
+animals=np.load("owo.npy")
+labels=np.load("owo_labels.npy")
 
 
 s=np.arange(animals.shape[0])
@@ -47,13 +47,19 @@ model.add(Dropout(0.2))
 model.add(Flatten())
 model.add(Dense(500,activation="relu"))
 model.add(Dropout(0.2))
-model.add(Dense(4,activation="sigmoid"))
+model.add(Dense(5,activation="sigmoid"))
 model.summary()
 
 # compile the model
 model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
 
-model.fit(x_train,y_train,batch_size=50,epochs=100,verbose=1)
+model.fit(x_train,y_train,batch_size=50,epochs=60,verbose=1)
+loss, accuracy, f1_score, precision, recall = model.evaluate(x_test, y_test, verbose=0)
+print(loss, accuracy, f1_score, precision, recall)
+
+with open("info.txt", "w") as f:
+    f.write("\n".join([loss, accuracy, f1_score, precision, recall]))
+    
 
 # Test
 score = model.evaluate(x_test, y_test, verbose=1)

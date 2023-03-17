@@ -2,7 +2,6 @@
 # import the opencv library
 import cv2
 from test import predict_animal
-from PIL import Image
   
   
 # define a video capture object

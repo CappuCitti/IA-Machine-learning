@@ -127,3 +127,9 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Other
+TensorFlow/owo.npy
+TensorFlow/owo_labels.npy
+TensorFlow/animals.npy
+TensorFlow/labels.npy
