@@ -47,19 +47,13 @@ model.add(Dropout(0.2))
 model.add(Flatten())
 model.add(Dense(500,activation="relu"))
 model.add(Dropout(0.2))
-model.add(Dense(5,activation="sigmoid"))
+model.add(Dense(2,activation="sigmoid"))
 model.summary()
 
 # compile the model
 model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
 
-model.fit(x_train,y_train,batch_size=50,epochs=60,verbose=1)
-loss, accuracy, f1_score, precision, recall = model.evaluate(x_test, y_test, verbose=0)
-print(loss, accuracy, f1_score, precision, recall)
-
-with open("info.txt", "w") as f:
-    f.write("\n".join([loss, accuracy, f1_score, precision, recall]))
-    
+model.fit(x_train,y_train,batch_size=50,epochs=40,verbose=1)
 
 # Test
 score = model.evaluate(x_test, y_test, verbose=1)
@@ -75,3 +69,12 @@ with open("model.json", "w") as json_file:
 # serialize weights to HDF5
 model.save_weights("model.h5")
 print("Saved model to disk")
+
+
+# Save report
+from sklearn.metrics import f1_score, precision_score, recall_score, confusion_matrix, classification_report
+args = np.argmax(y_test,axis=1)
+y_pred = np.argmax(model.predict(x_test),axis=1)
+
+with open("model_report.txt", "w") as f:
+    f.write(classification_report(args, y_pred))

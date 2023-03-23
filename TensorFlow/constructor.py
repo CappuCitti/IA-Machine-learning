@@ -6,59 +6,68 @@ import cv2
 
 data=[]
 labels=[]
-cats=os.listdir("raw-img/gatto")
+cats=os.listdir("../raw-img/gatto")
 for cat in cats:
-    imag=cv2.imread("raw-img/gatto/"+cat)
+    imag=cv2.imread("../raw-img/gatto/"+cat)
     img_from_ar = Image.fromarray(imag, 'RGB')
     resized_image = img_from_ar.resize((50, 50))
     data.append(np.array(resized_image))
     labels.append(0)
 
-dogs=os.listdir("raw-img/cane")
+dogs=os.listdir("../raw-img/cane")
 for dog in dogs:
-    imag=cv2.imread("raw-img/cane/"+dog)
+    imag=cv2.imread("../raw-img/cane/"+dog)
     img_from_ar = Image.fromarray(imag, 'RGB')
     resized_image = img_from_ar.resize((50, 50))
     data.append(np.array(resized_image))
     labels.append(1)
     
-cows=os.listdir("raw-img/mucca")
+cows=os.listdir("../raw-img/mucca")
 for cow in cows:
-    imag=cv2.imread("raw-img/mucca/"+cow)
+    imag=cv2.imread("../raw-img/mucca/"+cow)
     img_from_ar = Image.fromarray(imag, 'RGB')
     resized_image = img_from_ar.resize((50, 50))
     data.append(np.array(resized_image))
     labels.append(2)
 
-chickens=os.listdir("raw-img/gallina")
+chickens=os.listdir("../raw-img/gallina")
 for chicken in chickens:
-    imag=cv2.imread("raw-img/gallina/"+chicken)
+    imag=cv2.imread("../raw-img/gallina/"+chicken)
     img_from_ar = Image.fromarray(imag, 'RGB')
     resized_image = img_from_ar.resize((50, 50))
     data.append(np.array(resized_image))
     labels.append(3)
 
-people=os.listdir("raw-img/persone/0")
+people=os.listdir("../raw-img/persone/0")
 for person in people:
-    imag=cv2.imread("raw-img/persone/0/"+person)
+    imag=cv2.imread("../raw-img/persone/0/"+person)
     img_from_ar = Image.fromarray(imag, 'RGB')
     resized_image = img_from_ar.resize((50, 50))
     data.append(np.array(resized_image))
     labels.append(4)
-people=os.listdir("raw-img/persone/1")
+people=os.listdir("../raw-img/persone/1")
 for person in people:
-    imag=cv2.imread("raw-img/persone/1/"+person)
+    imag=cv2.imread("../raw-img/persone/1/"+person)
     img_from_ar = Image.fromarray(imag, 'RGB')
     resized_image = img_from_ar.resize((50, 50))
     data.append(np.array(resized_image))
     labels.append(4)
-people=os.listdir("raw-img/persone/2")
+people=os.listdir("../raw-img/persone/2")
 for person in people:
-    imag=cv2.imread("raw-img/persone/2/"+person)
+    imag=cv2.imread("../raw-img/persone/2/"+person)
     img_from_ar = Image.fromarray(imag, 'RGB')
     resized_image = img_from_ar.resize((50, 50))
     data.append(np.array(resized_image))
     labels.append(4)
+
+rooms=os.listdir("../raw-img/stanze")
+for room in rooms:
+    for r in room:
+        imag=cv2.imread(f"../raw-img/stanze/{room}/"+r)
+        img_from_ar = Image.fromarray(imag, 'RGB')
+        resized_image = img_from_ar.resize((50, 50))
+        data.append(np.array(resized_image))
+        labels.append(5)
 
 
 animals=np.array(data)

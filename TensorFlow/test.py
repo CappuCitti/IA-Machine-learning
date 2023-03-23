@@ -1,7 +1,7 @@
 import numpy as np
 from keras.models import model_from_json
 
-NUMBER = 3
+NUMBER = 5
 PATH = f"./modelli/{str(NUMBER)}/"
 
 f = open(PATH + "model.json", "r")
@@ -19,16 +19,20 @@ def convert_to_array(img):
     # return np.array(image)
     return img
 def get_animal_name(label):
+    # if label==0:
+    #     return "gatto"
+    # if label==1:
+    #     return "cane"
+    # if label==2:
+    #     return "mucca"
+    # if label==3:
+    #     return "gallina"
+    # if label==4:
+    #     return "persona"
     if label==0:
-        return "gatto"
-    if label==1:
-        return "cane"
-    if label==2:
-        return "mucca"
-    if label==3:
-        return "gallina"
-    if label==4:
         return "persona"
+    if label==1:
+        return "???"
 def predict_animal(file):
     print("Predicting .................................")
     ar=convert_to_array(file)
